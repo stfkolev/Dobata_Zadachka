@@ -1,13 +1,16 @@
 #pragma once
 #include <iostream>
+#include <windows.h>
+#include <conio.h>
 #include "Student.h"
 
 void queriesMenu(Student* students, int count) {
+
+    system("cls");
+
     int choice;
 
     do {
-
-
         std::cout << "==== Queries Menu ====" << std::endl << std::endl;
         std::cout << "[1] Show all students" << std::endl;
         std::cout << "[2] Show all students by faculty number" << std::endl;
@@ -25,12 +28,15 @@ void queriesMenu(Student* students, int count) {
             break;
 
         case 2:
-
+            printAllStudentsByFacultyNumber(students, count);
             break;
 
         default:
             break;
         }
+
+        std::cout << "Press any key to continue...";
+        _getch();
 
         system("cls");
 
@@ -69,6 +75,7 @@ void mainMenu() {
             break;
         }
 
+        Sleep(1500);
         system("cls");
 
     } while (std::cin.fail() || choice < 1 || choice > 4 || choice != 4);

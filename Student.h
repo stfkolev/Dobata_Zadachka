@@ -99,3 +99,15 @@ void printAllStudents(Student* students, int count) {
 	for (int i = 0; i < count; i++)
 		printStudent(students[i]);
 }
+
+void printAllStudentsByFacultyNumber(Student* students, int count) {
+
+	std::string facultyNumber;
+	std::cout << "Enter faculty number to match students by: ";
+	std::getline(std::cin, facultyNumber);
+
+	for (int i = 0; i < count; i++)
+		if(std::strncmp(students[i].facultyNumber.c_str(), facultyNumber.c_str(), 6) == 0)
+			printStudent(students[i]);
+}
+
